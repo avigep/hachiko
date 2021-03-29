@@ -20,7 +20,7 @@ Get the key from [here](https://openweathermap.org/appid)
 docker-compose up
 ```
 
-## Using default admin token
+### Using default admin token
 `Docker compose up` will run db seed and will create an admin account with `users:write` scope in development environment.
 
 Search for `########### Initialized db with dev admin user and token` in the terminal docker log to get the access_token to be used initially.
