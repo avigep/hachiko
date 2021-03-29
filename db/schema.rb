@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_27_210248) do
+ActiveRecord::Schema.define(version: 2021_03_27_210925) do
+
+  create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "key"
+    t.datetime "expiration"
+    t.text "scopes"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tokens_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
@@ -18,4 +28,5 @@ ActiveRecord::Schema.define(version: 2021_03_27_210248) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "tokens", "users"
 end
