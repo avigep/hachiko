@@ -12,7 +12,8 @@ Hachiko is a loyal authentication and authorization system for APIs
 
 Replace `WEATHER_API_KEY` value from docker-compose.yml  and add a valid key.
 <br>
-Get the key from [here]('https://openweathermap.org/appid')
+Get the key from [here](https://openweathermap.org/appid)
+--> https://openweathermap.org/appid
 
 ## Docker
 ```
