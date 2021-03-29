@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+ db:
+   image: "mysql:5.7"
+   environment:
+     MYSQL_ROOT_PASSWORD: root
+     MYSQL_USERNAME: root
+     MYSQL_PASSWORD: root
+   ports:
+      - "3307:3306"
+
+ hachiko_api:
+   depends_on:
+      - "db"
+   build: .
+   ports:
+      - "3000:3000"
+   dns:
+     - 8.8.8.8  
+   environment:
+     DB_USERNAME: root
+     DB_PASSWORD: root
+     DB_DATABASE: hachiko
+     DB_PORT: 3306
+     DB_HOST: db
+     RAILS_ENV: development
+     RAILS_MAX_THREADS: 5
+     WEATHER_API_KEY: 'API-KEY' 
+   volumes:
+      - ".:/hachiko"
+      - "./config/docker/database.yml:/hachiko/config/database.yml"
+    
+
+volumes:
+ db:
+

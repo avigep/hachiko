@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+if Rails.env.development? && User.first.nil?
+  admin = User.create(email: 'admin@admin.com')
+  token = Token.create!(scopes: ['users:write'], user: admin)
+  puts "########### Initialized db with dev admin user and token"
+  puts "Use access_token : #{token.key}"
+end
