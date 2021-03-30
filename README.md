@@ -2,7 +2,7 @@
 
 Hachiko is a loyal authentication and authorization system for APIs
 
-<img src="public/images/hachiko.jpeg" alt="drawing" width="430">
+<img src="public/images/hachiko.jpeg" alt="drawing" width="420">
 
 <br><br>
 
@@ -61,3 +61,7 @@ weather_forecast GET    /weather/forecast(.:format) weather#forecast
           tokens POST   /tokens(.:format)           tokens#create
            token DELETE /tokens/:id(.:format)       tokens#destroy
 ```
+
+# Test Coverage
+
+<img src="public/images/test_coverage.png" alt="test coverage" width="550">
